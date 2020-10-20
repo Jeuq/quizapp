@@ -36,7 +36,7 @@ const store = {
       correctAnswer: 'California',
     },
     {
-      question: 'In his breathtaking classical performances, Yo-Yo Ma plays what band concert instrument',
+      question: 'In his breathtaking classical performances, Yo-Yo Ma plays what band concert instrument?',
       answers: [
         'Cello',
         'Piano',
@@ -46,14 +46,14 @@ const store = {
       correctAnswer: 'Cello',
     },
     {
-      question: '',
+       question: 'What era of music does movements the classical composer Tchaikovsky originate?',
       answers: [
-        '',
-        '',
-        '',
-        ''
+        'Romantic',
+        'Baroque',
+        'Classic',
+        'Contemporary'
       ],
-      correctAnswer: '',
+      correctAnswer: 'Romantic'
     }
   ],
   quizStarted: false,
@@ -90,7 +90,7 @@ const store = {
 
 
 function startPage(){
-  
+// loads first 
 }
 
 
@@ -101,8 +101,12 @@ function handleStartQuiz () {
 
 function render() {
 // depending on status of store.quizStarted
-// load startPage or
-// execute questionPage (.html)
+  // load startPage or
+  // execute questionPage (.html)
+  // depending on input
+    // render correctPage or
+    // render incorrectPage
+
 }
 
 
@@ -121,7 +125,15 @@ function questionPage () {
 }
 
 
-function answers() {
-// if correct send to correctPage
-// if incorrect send to incorrectPage
-}
+function answers() 
+// compare click location to answer choice
+// if click !== answer, render answerPage template with incorrect response
+// if click === answer, render answerPage with correct
+
+
+
+// answerPage template:
+// correct/incorrect text
+// indicate correct answer
+// indicate number correct out of total
+// next button question
