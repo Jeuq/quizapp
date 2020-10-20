@@ -36,7 +36,7 @@ const store = {
       correctAnswer: 'California',
     },
     {
-      question: 'In his breathtaking classical performances, Yo-Yo Ma plays what band concert instrument',
+      question: 'In his breathtaking classical performances, Yo-Yo Ma plays what band concert instrument?',
       answers: [
         'Cello',
         'Piano',
@@ -46,7 +46,7 @@ const store = {
       correctAnswer: 'Cello',
     },
     {
-       question: 'What era is Tchaikovsky from?',
+       question: 'What era of music does movements the classical composer Tchaikovsky originate?',
       answers: [
         'Romantic',
         'Baroque',
