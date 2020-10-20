@@ -5,24 +5,24 @@ const store = {
   // 5 or more questions are required
   questions: [
     {
-      question: 'What color is broccoli?',
+      question: 'What long-time artistic duo was featured on The Weeknd\'s "I Feel It Comin\'"?',
       answers: [
-        'red',
-        'orange',
-        'pink',
-        'green'
+        'Chromeo',
+        'Daft Punk',
+        'Simon & Garfunkle',
+        'Genesis'
       ],
-      correctAnswer: 'green'
+      correctAnswer: 'Daft Punk'
     },
     {
-      question: 'What is the current year?',
+      question: 'Which of these is NOT a Radiohead album?',
       answers: [
-        '1970',
-        '2015',
-        '2019',
-        '2005'
+        'Kid A',
+        'The Bends',
+        'Pablo Honey',
+        'Maladroit'
       ],
-      correctAnswer: '2019'
+      correctAnswer: 'Maladroit'
     }
   ],
   quizStarted: false,
