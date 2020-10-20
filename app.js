@@ -1,3 +1,4 @@
+/* eslint-disable strict */
 /**
  * Example store structure
  */
@@ -5,52 +6,54 @@ const store = {
   // 5 or more questions are required
   questions: [
     {
-      question: 'What color is broccoli?',
+      question: 'What long-time artistic duo was featured on The Weeknd\'s "I Feel It Comin\'"?',
       answers: [
-        'red',
-        'orange',
-        'pink',
-        'green'
+        'Chromeo',
+        'Daft Punk',
+        'Simon & Garfunkle',
+        'Genesis'
       ],
-      correctAnswer: 'green'
+      correctAnswer: 'Daft Punk'
     },
     {
-      question: 'What is the current year?',
+      question: 'Which of these is NOT a Radiohead album?',
       answers: [
-        '1970',
-        '2015',
-        '2019',
-        '2005'
+        'Kid A',
+        'The Bends',
+        'Pablo Honey',
+        'Maladroit'
       ],
-      correctAnswer: '2019'},
-      {
-      question: 'What era is Tchaikovsky from?',
-      answers: [
-        'Romantic',
-        'Baroque',
-        'Classic',
-        'Contemporary'
-      ],
-      correctAnswer: 'Romantic'
+      correctAnswer: 'Maladroit'
     },
     {
-      question: 'What is the current year?',
+      question: 'What state was Led Zeppelin "Going to" on their 1971 album Led Zeppelin IV?',
       answers: [
-        '1970',
-        '2015',
-        '2019',
-        '2005'
+        'Virginia',
+        'New Jersey',
+        'California',
+        'Alabama'
       ],
-      correctAnswer: '2019'
-    },{
-      question: 'What is the current year?',
+      correctAnswer: 'California',
+    },
+    {
+      question: 'In his breathtaking classical performances, Yo-Yo Ma plays what band concert instrument',
       answers: [
-        '1970',
-        '2015',
-        '2019',
-        '2005'
+        'Cello',
+        'Piano',
+        'Clarinet',
+        'Flute'
       ],
-      correctAnswer: '2019'
+      correctAnswer: 'Cello',
+    },
+    {
+      question: '',
+      answers: [
+        '',
+        '',
+        '',
+        ''
+      ],
+      correctAnswer: '',
     }
   ],
   quizStarted: false,
@@ -118,6 +121,7 @@ function questionPage () {
 }
 
 
-function answers() 
+function answers() {
 // if correct send to correctPage
 // if incorrect send to incorrectPage
+}
