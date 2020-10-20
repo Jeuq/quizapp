@@ -46,14 +46,14 @@ const store = {
       correctAnswer: 'Cello',
     },
     {
-      question: '',
+       question: 'What era is Tchaikovsky from?',
       answers: [
-        '',
-        '',
-        '',
-        ''
+        'Romantic',
+        'Baroque',
+        'Classic',
+        'Contemporary'
       ],
-      correctAnswer: '',
+      correctAnswer: 'Romantic'
     }
   ],
   quizStarted: false,
