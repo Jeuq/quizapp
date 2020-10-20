@@ -1,3 +1,4 @@
+/* eslint-disable strict */
 /**
  * Example store structure
  */
@@ -23,6 +24,36 @@ const store = {
         'Maladroit'
       ],
       correctAnswer: 'Maladroit'
+    },
+    {
+      question: 'What state was Led Zeppelin "Going to" on their 1971 album Led Zeppelin IV?',
+      answers: [
+        'Virginia',
+        'New Jersey',
+        'California',
+        'Alabama'
+      ],
+      correctAnswer: 'California',
+    },
+    {
+      question: 'In his breathtaking classical performances, Yo-Yo Ma plays what band concert instrument',
+      answers: [
+        'Cello',
+        'Piano',
+        'Clarinet',
+        'Flute'
+      ],
+      correctAnswer: 'Cello',
+    },
+    {
+      question: '',
+      answers: [
+        '',
+        '',
+        '',
+        ''
+      ],
+      correctAnswer: '',
     }
   ],
   quizStarted: false,
@@ -90,6 +121,7 @@ function questionPage () {
 }
 
 
-function answers() 
+function answers() {
 // if correct send to correctPage
 // if incorrect send to incorrectPage
+}
