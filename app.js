@@ -90,7 +90,7 @@ const store = {
 
 
 function startPage(){
-// loads first 
+  
 }
 
 

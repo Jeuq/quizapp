@@ -6,3 +6,38 @@
   * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
   *
 */
+
+html {
+  background: #f0f0f0;
+}
+
+header > h1 {
+  width: 100%;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-flow: column wrap;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+}
+
+#question-card {
+  display: inherit;
+  flex-flow: column wrap;
+  justify-items: center;
+  width: 50%;
+  margin: auto;
+}
+
+#answer-section {
+  display: inherit;
+  flex-direction: column;
+}
+
+#submit {
+  width: 96px;
+  margin: auto;
+}
