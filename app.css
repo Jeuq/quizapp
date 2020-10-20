@@ -16,7 +16,7 @@ header > h1 {
   text-align: center;
 }
 
-main {
+#quiz-wireframe {
   display: flex;
   flex-flow: column wrap;
   justify-items: center;
