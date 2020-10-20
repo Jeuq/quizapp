@@ -89,51 +89,56 @@ const store = {
 // These functions handle events (submit, click, etc)
 
 
+
 function startPage(){
-// loads first 
-}
-
-
-function handleStartQuiz () {
-// click -> starting quiz
-}
-
-
-function render() {
-// depending on status of store.quizStarted
-  // load startPage or
-  // execute questionPage (.html)
-  // depending on input
-    // render correctPage or
-    // render incorrectPage
-
-}
-
-
-function main() {
+  // loads first 
+  }
   
-}
-
-
-function questionPage () {
-// reference store.questionnumber
-// template for formatting of question
-// template for radio button labels and values for options
-// submit button
-// increment store.questionnumber
-// send to answerPage
-}
-
-
-function answers() 
-// compare click location to answer choice
-// if click !== answer, render answerPage template with incorrect response
-// if click === answer, render answerPage with correct
-
-
-
-// answerPage template:
-// correct/incorrect text
-// indicate correct answer
-// indicate number correct out of total
-// next button question
+  
+  function handleStartQuiz () {
+  // click -> starting quiz
+  }
+  
+  
+  function render() {
+    if (store.quizStarted === false) {
+      startPage();
+    } else if (store.quizstarted) {
+      questionPage();
+      // if (input === answer) {
+        // render correctPage
+      //} else if ( input !== answer) {
+        // render incorrect page}
+  
+  
+  }
+  
+  
+  function main() {
+    
+  }
+  
+  
+  function questionPage () {
+  // reference store.questionnumber
+  // template for formatting of question
+  // template for radio button labels and values for options
+  // submit button
+  // increment store.questionnumber
+  // send to answerPage
+  }
+  
+  
+  function answers() 
+  // compare click location to answer choice
+  // if click !== answer, render answerPage template with incorrect response
+  // if click === answer, render answerPage with correct
+  
+  
+  function score()
+  
+  // answerPage template:
+  // correct/incorrect text
+  // indicate correct answer
+  // indicate number correct out of total
+  // next button question
