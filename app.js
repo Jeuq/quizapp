@@ -101,8 +101,12 @@ function handleStartQuiz () {
 
 function render() {
 // depending on status of store.quizStarted
-// load startPage or
-// execute questionPage (.html)
+  // load startPage or
+  // execute questionPage (.html)
+  // depending on input
+    // render correctPage or
+    // render incorrectPage
+
 }
 
 
@@ -121,7 +125,15 @@ function questionPage () {
 }
 
 
-function answers() {
-// if correct send to correctPage
-// if incorrect send to incorrectPage
-}
+function answers() 
+// compare click location to answer choice
+// if click !== answer, render answerPage template with incorrect response
+// if click === answer, render answerPage with correct
+
+
+
+// answerPage template:
+// correct/incorrect text
+// indicate correct answer
+// indicate number correct out of total
+// next button question
