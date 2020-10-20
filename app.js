@@ -22,6 +22,34 @@ const store = {
         '2019',
         '2005'
       ],
+      correctAnswer: '2019'},
+      {
+      question: 'What era is Tchaikovsky from?',
+      answers: [
+        'Romantic',
+        'Baroque',
+        'Classic',
+        'Contemporary'
+      ],
+      correctAnswer: 'Romantic'
+    },
+    {
+      question: 'What is the current year?',
+      answers: [
+        '1970',
+        '2015',
+        '2019',
+        '2005'
+      ],
+      correctAnswer: '2019'
+    },{
+      question: 'What is the current year?',
+      answers: [
+        '1970',
+        '2015',
+        '2019',
+        '2005'
+      ],
       correctAnswer: '2019'
     }
   ],
