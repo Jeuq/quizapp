@@ -93,7 +93,7 @@ function render() {
     $('main').html(startPage());
   }
   if (store.quizStarted === true) {
-    //$('main').html(callback);
+    $('main').html(callback);
   }
 }
 
