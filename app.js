@@ -60,8 +60,8 @@ const store = {
 
 // These functions return HTML templates
 
-function startPage() {
-  console.log("startPage()");
+const startPage = () => {
+  console.log('startPage()');
   // loads first and show the title + the button to start the quiz return
   handleStartQuiz();
   return `
@@ -74,7 +74,7 @@ function startPage() {
   </article>`;
 }
 
-function handleStartQuiz() {
+const handleStartQuiz = () => {
   // click -> starting quiz
   $('main').on('click', '#start', function () {
     store.quizStarted = true;
@@ -86,8 +86,8 @@ function handleStartQuiz() {
 
 // This function conditionally replaces the contents of the <main> tag based on the state of the store
 
-function render() {
-  console.log("render()");
+const render = () => {
+  console.log('render()');
   // depending on status of store.quizStarted
   // load startPage or
   // execute questionPage (.html)
@@ -96,15 +96,15 @@ function render() {
   // render incorrectPage
 
   if (store.quizStarted === false) {
-    $('main').html(startPage());
+    $('main').html(startPage);
   }
   if (store.quizStarted === true) {
-    $('main').html(questionPage());
+    $('main').html(questionPage);
   }
 }
 
-function questionPage() {
-  console.log("questionPage()");
+const questionPage = () => {
+  console.log('questionPage()');
   // reference store.questionnumber
   // template for formatting of question
   // template for radio button labels and values for options
@@ -128,6 +128,7 @@ function questionPage() {
       <input type="radio" class="answer" id="ans${i + 1}" name="response" value="${answerValue}"/>
       ${answerValue}
     </label>`;
+    console.log(store.questionNumber.toString());
   }
 
   // Creates the current question page template.
@@ -143,7 +144,7 @@ function questionPage() {
           ${
             currentAnswers
           }
-          <button class="answer" id="submit">Next</button>
+          <button class="submit" id="next${store.questionNumber}">Next</button>
         </form>
       <p class="question" id="quiz-score">Score</p>
     </article>`;
@@ -158,25 +159,25 @@ function questionPage() {
 // These functions handle events (submit, click, etc)
 
 const nextQuestion = () => {
-  console.log("nextQuestion()");
-  $('main').on('click', '#submit', (event) => {
+  console.log('nextQuestion()');
+  let id = '#next' + store.questionNumber.toString();
+  $('main').on('click', id, (event) => {
     answers();
   });
 };
 
 const restartQuiz = () => {
-  console.log("restartQuiz()");
-  $('main').on('click', '#restart', (event) => {
-    let index = 0;
+  console.log('restartQuiz()');
+  $('main').on('click', '#reset', (event) => {
     store.quizStarted = false;
     store.score = 0;
     store.questionNumber = 0;
-    render();
+    questionPage();
   });
 };
 
-function answers() {
-  console.log("answers()");
+const answers = () => {
+  console.log('answers()');
 // compare click location to answer choice
 // if click !== answer, render answerPage template with incorrect response
 // if click === answer, render answerPage with correct
@@ -191,12 +192,12 @@ function answers() {
 
 
 const main = () => {
-  console.log("main()");
+  console.log('main()');
   //handleStartQuiz();
   //render();
   //counter();
   //nextQuestion();
-  //restartQuiz();
+  restartQuiz();
   render();
 };
 

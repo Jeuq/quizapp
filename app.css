@@ -44,7 +44,7 @@ main {
 }
 
 #start,
-#submit,
+.submit,
 #reset {
   width: 96px;
   margin: 12px auto;
