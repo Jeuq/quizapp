@@ -83,7 +83,7 @@ function startPage(){
   function render() {
     if (store.quizStarted === false) {
       startPage();
-    } else if (store.quizstarted) {
+    } else if (store.quizStarted) {
       questionPage();
       // if (input === answer) {
         // render correctPage
