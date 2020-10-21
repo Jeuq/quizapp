@@ -62,11 +62,15 @@ const store = {
 
 function startPage() {
   // loads first and show the title + the button to start the quiz return
-  `<div class="box">
-    <h2>Randow Music Knowlegde Quiz</h2> 
-    <p> Are you ready? <p>
-    <button id="start">Start Quiz</button>
-  </div>`;
+  handleStartQuiz();
+  return `
+  <article class="question" id="question-card">
+    <h2 class="question" id="question-title">Randow Music Knowlegde Quiz</h2> 
+    <form class="answer" id="answer-section">
+      <p class="answer">Are you ready?</p>
+      <button id="start">Start Quiz</button>
+    </section>
+  </article>`;
 }
 
 function handleStartQuiz() {
@@ -93,7 +97,7 @@ function render() {
     $('main').html(startPage());
   }
   if (store.quizStarted === true) {
-    //$('main').html(callback);
+    $('main').html(questionPage());
   }
 }
 
@@ -104,6 +108,8 @@ function questionPage() {
   // submit button
   // increment store.questionnumber
   // send to answerPage
+
+  nextQuestion();
 
   let currentAnswers = [];
 
@@ -135,6 +141,8 @@ function questionPage() {
         </form>
       <p class="question" id="quiz-score">Score</p>
     </article>`;
+
+    return currentPage;
 }
 
 /********** EVENT HANDLER FUNCTIONS **********/
@@ -143,11 +151,7 @@ function questionPage() {
 
 const nextQuestion = () => {
   $('main').on('click', '#next', (event) => {
-    if (store.questionNumber === store.questions.length) {
-      handleStartQuiz(getResults());
-    } else {
-      handleStartQuiz(questionPage(i));
-    }
+    answers();
   });
 };
 
@@ -157,11 +161,16 @@ const restartQuiz = () => {
     store.quizStarted = false;
     store.score = 0;
     store.questionNumber = 0;
-    handleStartQuiz(startPage());
+    render();
   });
 };
 
-function answers() {}
+function answers() {
+  // do the answer stuff
+  // judge your subject by pure wit
+  store.questionNumber++;
+  render();
+}
 // compare click location to answer choice
 // if click !== answer, render answerPage template with incorrect response
 // if click === answer, render answerPage with correct
@@ -171,12 +180,15 @@ function answers() {}
 // indicate number correct out of total
 // next button question
 
+
+
 const main = () => {
-  handleStartQuiz();
-  render();
+  //handleStartQuiz();
+  //render();
   //counter();
-  nextQuestion();
-  restartQuiz();
+  //nextQuestion();
+  //restartQuiz();
+  render();
 };
 
 $(main);
