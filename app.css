@@ -6,14 +6,22 @@
   * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
   *
 */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,200&display=swap');
 
 html {
-  background: #f0f0f0;
+  background: #503a4e;
+  overflow-x: hidden;
+  font-family: 'Poppins', Geneva, Verdana, sans-serif;
 }
 
 header > h1 {
-  width: 100%;
+  width: 110%;
+  background: rgb(77, 68, 78);
+  color: white;
   text-align: center;
+  padding: 36px 0;
+  margin: 0 -5% 36px -5%;
+  box-shadow: 0px 2px 5px 1px black;
 }
 
 main {
@@ -22,25 +30,34 @@ main {
   justify-items: center;
   align-items: center;
   width: 100%;
+  font-size: 125%;
 }
 
 #question-card {
+  background: #e9dae9;
   border: 1px solid black;
   display: inherit;
   flex-flow: column wrap;
   justify-items: center;
-  width: 50%;
+  width: 75%;
   margin: auto;
-  padding: 12px;
+  padding: 36px 36px;
+  border-radius: 12px;
+  box-shadow:
+    0px 3px 5px black;
+}
+
+#question-title {
+  text-align: center;
+  margin-top: 0;
 }
 
 #answer-section {
+  background: #f6f2f7;
   border: 1px solid black;
   display: inherit;
   flex-direction: column;
-  width: 90%;
-  margin: auto;
-  padding: 12px;
+  padding: 12px 24px;
 }
 
 #answer-section img {
@@ -49,9 +66,20 @@ main {
   height: auto;
 }
 
+label {
+  padding: 12px 0;
+}
+
 #start,
 .submit,
 #reset {
-  width: 96px;
+  width: 124px;
   margin: 12px auto;
+}
+
+@media screen and (min-width: 800px) {
+  #question-card {
+    width: 50%;
+    font-size: 100%;
+  }
 }
