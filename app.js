@@ -46,7 +46,7 @@ const store = {
       correctAnswer: 'Cello',
     },
     {
-       question: 'What era of music does movements the classical composer Tchaikovsky originate?',
+      question: 'What era of music does movements the classical composer Tchaikovsky originate?',
       answers: [
         'Romantic',
         'Baroque',
@@ -89,8 +89,14 @@ const store = {
 // These functions handle events (submit, click, etc)
 
 
-function startPage(){
-// loads first 
+function startPage() {
+
+  // loads first and show the title + the button to start the quiz return
+  `<div class="box">
+    <h2>Randow Music Knowlegde Quiz</h2> 
+    <p> Are you ready? <p>
+    <button id="start">Start Quiz</button>
+  </div>`;
 }
 
 
@@ -100,18 +106,24 @@ function handleStartQuiz () {
 
 
 function render() {
-// depending on status of store.quizStarted
+  // depending on status of store.quizStarted
   // load startPage or
   // execute questionPage (.html)
   // depending on input
-    // render correctPage or
-    // render incorrectPage
+  // render correctPage or
+  // render incorrectPage
+
+  if (store.quizStarted === false) {
+    $('main').html(startPage());
+  }
+  if (store.quizStarted === true) {
+    //$('main').html(callback);
+  }
 
 }
 
 
 function main() {
-  
 }
 
 
@@ -122,10 +134,34 @@ function questionPage () {
 // submit button
 // increment store.questionnumber
 // send to answerPage
+
+  let currentAnswers = [];
+
+// Grabs all the answers for the current question.
+  for(let i = 0; i < store.questions[store.questionNumber].answers.length; i++)
+  {
+    currentAnswers[i] = `
+    <label for="ans${i + 1}">
+      <input type="radio" class="answer" id="ans${i + 1}"/>
+      ${store.questions[store.questionNumber].answers[i]}
+    </label>`;
+  }
+
+  // Creates the current question page template.
+  let currentPage = `
+    <article class="question" id="question-card">
+      <h2 class="question" id="question-title">Question ${store.questionNumber + 1}</h2>
+      <p class="question" id="question-text">${store.questions[store.questionNumber].question}</p>
+        <form class="answer" id="answer-section">
+          ${currentAnswers}
+          <button class="answer" id="submit">Next</button>
+        </form>
+      <p class="question" id="quiz-score">Score</p>
+    </article>`;
 }
 
 
-function answers() 
+function answers() {}
 // compare click location to answer choice
 // if click !== answer, render answerPage template with incorrect response
 // if click === answer, render answerPage with correct
