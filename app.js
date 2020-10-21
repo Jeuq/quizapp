@@ -9,8 +9,7 @@ const store = {
   // 5 or more questions are required
   questions: [
     {
-      question:
-        'What long-time artistic duo was featured on The Weeknd\'s "I Feel It Comin\'"?',
+      question: 'What long-time artistic duo was featured on The Weeknd\'s "I Feel It Comin\'"?',
       answers: ['Chromeo', 'Daft Punk', 'Simon & Garfunkle', 'Genesis'],
       correctAnswer: 'Daft Punk',
       answerInfo: 'welknd',
