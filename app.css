@@ -16,7 +16,7 @@ header > h1 {
   text-align: center;
 }
 
-main {
+#quiz-wireframe {
   display: flex;
   flex-flow: column wrap;
   justify-items: center;
@@ -25,19 +25,27 @@ main {
 }
 
 #question-card {
+  border: 1px solid black;
   display: inherit;
   flex-flow: column wrap;
   justify-items: center;
   width: 50%;
   margin: auto;
+  padding: 12px;
 }
 
 #answer-section {
+  border: 1px solid black;
   display: inherit;
   flex-direction: column;
+  width: 90%;
+  margin: auto;
+  padding: 12px;
 }
 
-#submit {
+#start,
+#submit,
+#reset {
   width: 96px;
-  margin: auto;
+  margin: 12px auto;
 }
