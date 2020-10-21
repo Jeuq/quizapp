@@ -43,6 +43,12 @@ main {
   padding: 12px;
 }
 
+#answer-section img {
+  width: 90%;
+  margin: auto;
+  height: auto;
+}
+
 #start,
 .submit,
 #reset {

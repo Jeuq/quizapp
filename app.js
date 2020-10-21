@@ -13,28 +13,28 @@ const store = {
         'What long-time artistic duo was featured on The Weeknd\'s "I Feel It Comin\'"?',
       answers: ['Chromeo', 'Daft Punk', 'Simon & Garfunkle', 'Genesis'],
       correctAnswer: 'Daft Punk',
-      answerInfo: '',
+      answerInfo: 'welknd',
       infoImage: 'the-weeknd.jpg'
     },
     {
       question: 'Which of these is NOT a Radiohead album?',
       answers: ['Kid A', 'The Bends', 'Pablo Honey', 'Maladroit'],
       correctAnswer: 'Maladroit',
-      answerInfo: '',
+      answerInfo: 'radioman',
       infoImage: 'Radiohead-Promo-730x410.jpg'
     },
     {
       question: 'What state was Led Zeppelin "Going to" on their 1971 album Led Zeppelin IV?',
       answers: ['Virginia', 'New Jersey', 'California', 'Alabama'],
       correctAnswer: 'California',
-      answerInfo: '',
+      answerInfo: 'lead zepples',
       infoImage: 'led-zep-IV.jpg'
     },
     {
       question: 'In his breathtaking classical performances, Yo-Yo Ma plays what band concert instrument?',
       answers: ['Cello', 'Piano', 'Clarinet', 'Flute'],
       correctAnswer: 'Cello',
-      answerInfo: '',
+      answerInfo: 'yo mama',
       infoImage: 'R1606L_YOYOMA.jpg'
     },
     {
@@ -42,7 +42,7 @@ const store = {
         'What era of music does movements from the classical composer Tchaikovsky originate?',
       answers: ['Romantic', 'Baroque', 'Classic', 'Contemporary'],
       correctAnswer: 'Romantic',
-      answerInfo: '',
+      answerInfo: 'good old russian fren',
       infoImage: 'Pyotr-Ilyich-Tchaikovsky.jpg'
     },
   ],
@@ -177,7 +177,8 @@ const answerPage = (val) => {
   let realAns = store.questions[store.questionNumber].correctAnswer;
   let title;
   let color;
-  let info;
+  let image = store.questions[store.questionNumber].infoImage;
+  let info = store.questions[store.questionNumber].answerInfo;
 
   if (val === realAns)
   {
@@ -195,12 +196,12 @@ const answerPage = (val) => {
   <article class="question" id="question-card">
   <h2 style="color:${color};" class="question" id="question-title">${title}</h2>
     <form class="answer" id="answer-section">
-      <img src="${infoImage}"/>
-      <p class="question" id="question-text">${answerInfo}</p>
+      <img src="images/${image}"/>
+      <p class="question" id="question-text">${info}</p>
+      <p>The correct answer was: <strong>${realAns}</strong></p> 
       <button class="submit" id="next${store.questionNumber}">Next</button>
     </form>
-    <p class="question" id="quiz-score">Correct: ${store.score}/${store.questionNumber + 1}</p>
-    <p>The correct answer was: <strong>${realAns}</strong></p>    
+    <p class="question" id="quiz-score">Correct: ${store.score}/${store.questionNumber + 1}</p>   
   </article>`;
 
   return answerEval;
@@ -239,10 +240,6 @@ const restartQuiz = () => {
 
 const main = () => {
   console.log('main()');
-  //handleStartQuiz();
-  //render();
-  //counter();
-  //nextQuestion();
   restartQuiz();
   render();
 };
