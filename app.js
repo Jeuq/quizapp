@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable strict */
 /**
  * Example store structure
@@ -7,32 +8,32 @@ const store = {
   questions: [
     {
       question:
-        "What long-time artistic duo was featured on The Weeknd's \"I Feel It Comin'\"?",
-      answers: ["Chromeo", "Daft Punk", "Simon & Garfunkle", "Genesis"],
-      correctAnswer: "Daft Punk",
+        'What long-time artistic duo was featured on The Weeknd\'s "I Feel It Comin\'"?',
+      answers: ['Chromeo', 'Daft Punk', 'Simon & Garfunkle', 'Genesis'],
+      correctAnswer: 'Daft Punk',
     },
     {
-      question: "Which of these is NOT a Radiohead album?",
-      answers: ["Kid A", "The Bends", "Pablo Honey", "Maladroit"],
-      correctAnswer: "Maladroit",
+      question: 'Which of these is NOT a Radiohead album?',
+      answers: ['Kid A', 'The Bends', 'Pablo Honey', 'Maladroit'],
+      correctAnswer: 'Maladroit',
     },
     {
       question:
         'What state was Led Zeppelin "Going to" on their 1971 album Led Zeppelin IV?',
-      answers: ["Virginia", "New Jersey", "California", "Alabama"],
-      correctAnswer: "California",
+      answers: ['Virginia', 'New Jersey', 'California', 'Alabama'],
+      correctAnswer: 'California',
     },
     {
       question:
-        "In his breathtaking classical performances, Yo-Yo Ma plays what band concert instrument?",
-      answers: ["Cello", "Piano", "Clarinet", "Flute"],
-      correctAnswer: "Cello",
+        'In his breathtaking classical performances, Yo-Yo Ma plays what band concert instrument?',
+      answers: ['Cello', 'Piano', 'Clarinet', 'Flute'],
+      correctAnswer: 'Cello',
     },
     {
       question:
-        "What era of music does movements the classical composer Tchaikovsky originate?",
-      answers: ["Romantic", "Baroque", "Classic", "Contemporary"],
-      correctAnswer: "Romantic",
+        'What era of music does movements from the classical composer Tchaikovsky originate?',
+      answers: ['Romantic', 'Baroque', 'Classic', 'Contemporary'],
+      correctAnswer: 'Romantic',
     },
   ],
   quizStarted: false,
@@ -70,7 +71,7 @@ function startPage() {
 
 function handleStartQuiz() {
   // click -> starting quiz
-  $("main").on("click", "#start", function () {
+  $('main').on('click', '#start', function () {
     store.quizStarted = true;
     render();
   });
@@ -89,7 +90,7 @@ function render() {
   // render incorrectPage
 
   if (store.quizStarted === false) {
-    $("main").html(startPage());
+    $('main').html(startPage());
   }
   if (store.quizStarted === true) {
     //$('main').html(callback);
@@ -141,7 +142,7 @@ function questionPage() {
 // These functions handle events (submit, click, etc)
 
 const nextQuestion = () => {
-  $("main").on("click", "#next", (event) => {
+  $('main').on('click', '#next', (event) => {
     if (store.questionNumber === store.questions.length) {
       handleStartQuiz(getResults());
     } else {
@@ -151,8 +152,8 @@ const nextQuestion = () => {
 };
 
 const restartQuiz = () => {
-  $("main").on("click", "#restart", (event) => {
-    index = 0;
+  $('main').on('click', '#restart', (event) => {
+    let index = 0;
     store.quizStarted = false;
     store.score = 0;
     store.questionNumber = 0;
