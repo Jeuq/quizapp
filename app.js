@@ -150,7 +150,7 @@ function questionPage() {
 // These functions handle events (submit, click, etc)
 
 const nextQuestion = () => {
-  $('main').on('click', '#next', (event) => {
+  $('main').on('click', '#submit', (event) => {
     answers();
   });
 };
