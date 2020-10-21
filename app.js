@@ -72,7 +72,7 @@ const startPage = () => {
       <button id="start">Start Quiz</button>
     </section>
   </article>`;
-}
+};
 
 const handleStartQuiz = () => {
   // click -> starting quiz
@@ -80,7 +80,7 @@ const handleStartQuiz = () => {
     store.quizStarted = true;
     render();
   });
-}
+};
 
 /********** RENDER FUNCTION(S) **********/
 
@@ -96,10 +96,10 @@ const render = () => {
   // render incorrectPage
 
   if (store.quizStarted === false) {
-    $('main').html(startPage);
+    $('main').html(startPage());
   }
   if (store.quizStarted === true) {
-    $('main').html(questionPage);
+    $('main').html(questionPage());
   }
 }
 
@@ -112,7 +112,7 @@ const questionPage = () => {
   // increment store.questionnumber
   // send to answerPage
 
-  nextQuestion();
+  checkAnswer();
 
   let currentAnswers = '';
 
@@ -128,7 +128,6 @@ const questionPage = () => {
       <input type="radio" class="answer" id="ans${i + 1}" name="response" value="${answerValue}"/>
       ${answerValue}
     </label>`;
-    console.log(store.questionNumber.toString());
   }
 
   // Creates the current question page template.
@@ -144,25 +143,78 @@ const questionPage = () => {
           ${
             currentAnswers
           }
-          <button class="submit" id="next${store.questionNumber}">Next</button>
+          <button class="submit" id="check${store.questionNumber}">Submit</button>
         </form>
-      <p class="question" id="quiz-score">Score</p>
+      <p class="question" id="quiz-score">Correct: ${store.score}/${store.questionNumber}</p>
     </article>`;
 
-    store.questionNumber++;
-
     return currentPage;
-}
+};
+
+const answerPage = (val) => {
+  console.log('answerPage()');
+// compare click location to answer choice
+// if click !== answer, render answerPage template with incorrect response
+// if click === answer, render answerPage with correct
+// answerPage template:
+// correct/incorrect text
+// indicate correct answer
+// indicate number correct out of total
+// next button question
+
+  nextQuestion();
+
+  let realAns = store.questions[store.questionNumber].correctAnswer;
+  let title;
+  let color;
+  let info;
+
+  if (val === realAns)
+  {
+    store.score++;
+    title = 'Correct!';
+    color = 'green';
+    info = 'good job im proud love u';
+  }
+  else
+  {
+    title = 'Wrong!';
+    color = 'red';
+    info = 'You DUMMY!';
+  }
+
+  let answerEval = `
+  <article class="question" id="question-card">
+  <h2 style="color:${color};" class="question" id="question-title">${title}</h2>
+    <form class="answer" id="answer-section">
+      <p class="question" id="question-text">${info}</p>
+      <button class="submit" id="next${store.questionNumber}">Next</button>
+    </form>
+    <p class="question" id="quiz-score">Correct: ${store.score}/${store.questionNumber + 1}</p>
+    <p>The correct answer was: <strong>${realAns}</strong></p>    
+  </article>`;
+
+  return answerEval;
+
+};
 
 /********** EVENT HANDLER FUNCTIONS **********/
 
 // These functions handle events (submit, click, etc)
 
 const nextQuestion = () => {
-  console.log('nextQuestion()');
-  let id = '#next' + store.questionNumber.toString();
+  let id = '#next' + store.questionNumber;
   $('main').on('click', id, (event) => {
-    answers();
+    store.questionNumber++;
+    render();
+  });
+};
+
+const checkAnswer = () => {
+  let id = '#check' + store.questionNumber;
+  $('main').on('click', id, (event) => {
+    let val = $('input[name="response"]:checked').val();
+    $('main').html(answerPage(val));
   });
 };
 
@@ -172,24 +224,9 @@ const restartQuiz = () => {
     store.quizStarted = false;
     store.score = 0;
     store.questionNumber = 0;
-    questionPage();
+    render();
   });
 };
-
-const answers = () => {
-  console.log('answers()');
-// compare click location to answer choice
-// if click !== answer, render answerPage template with incorrect response
-// if click === answer, render answerPage with correct
-// answerPage template:
-// correct/incorrect text
-// indicate correct answer
-// indicate number correct out of total
-// next button question
-  render();
-}
-
-
 
 const main = () => {
   console.log('main()');
