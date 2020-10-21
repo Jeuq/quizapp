@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 /* eslint-disable indent */
 /* eslint-disable strict */
 /**
@@ -18,14 +20,12 @@ const store = {
       correctAnswer: 'Maladroit',
     },
     {
-      question:
-        'What state was Led Zeppelin "Going to" on their 1971 album Led Zeppelin IV?',
+      question: 'What state was Led Zeppelin "Going to" on their 1971 album Led Zeppelin IV?',
       answers: ['Virginia', 'New Jersey', 'California', 'Alabama'],
       correctAnswer: 'California',
     },
     {
-      question:
-        'In his breathtaking classical performances, Yo-Yo Ma plays what band concert instrument?',
+      question: 'In his breathtaking classical performances, Yo-Yo Ma plays what band concert instrument?',
       answers: ['Cello', 'Piano', 'Clarinet', 'Flute'],
       correctAnswer: 'Cello',
     },
@@ -61,6 +61,7 @@ const store = {
 // These functions return HTML templates
 
 function startPage() {
+  console.log("startPage()");
   // loads first and show the title + the button to start the quiz return
   handleStartQuiz();
   return `
@@ -86,6 +87,7 @@ function handleStartQuiz() {
 // This function conditionally replaces the contents of the <main> tag based on the state of the store
 
 function render() {
+  console.log("render()");
   // depending on status of store.quizStarted
   // load startPage or
   // execute questionPage (.html)
@@ -102,6 +104,7 @@ function render() {
 }
 
 function questionPage() {
+  console.log("questionPage()");
   // reference store.questionnumber
   // template for formatting of question
   // template for radio button labels and values for options
@@ -111,7 +114,7 @@ function questionPage() {
 
   nextQuestion();
 
-  let currentAnswers = [];
+  let currentAnswers = '';
 
   // Grabs all the answers for the current question.
   for (
@@ -119,10 +122,11 @@ function questionPage() {
     i < store.questions[store.questionNumber].answers.length;
     i++
   ) {
-    currentAnswers[i] = `
+    answerValue = store.questions[store.questionNumber].answers[i];
+    currentAnswers += `
     <label for="ans${i + 1}">
-      <input type="radio" class="answer" id="ans${i + 1}"/>
-      ${store.questions[store.questionNumber].answers[i]}
+      <input type="radio" class="answer" id="ans${i + 1}" name="response" value="${answerValue}"/>
+      ${answerValue}
     </label>`;
   }
 
@@ -136,11 +140,15 @@ function questionPage() {
         store.questions[store.questionNumber].question
       }</p>
         <form class="answer" id="answer-section">
-          ${currentAnswers}
+          ${
+            currentAnswers
+          }
           <button class="answer" id="submit">Next</button>
         </form>
       <p class="question" id="quiz-score">Score</p>
     </article>`;
+
+    store.questionNumber++;
 
     return currentPage;
 }
@@ -150,12 +158,14 @@ function questionPage() {
 // These functions handle events (submit, click, etc)
 
 const nextQuestion = () => {
+  console.log("nextQuestion()");
   $('main').on('click', '#submit', (event) => {
     answers();
   });
 };
 
 const restartQuiz = () => {
+  console.log("restartQuiz()");
   $('main').on('click', '#restart', (event) => {
     let index = 0;
     store.quizStarted = false;
@@ -166,11 +176,7 @@ const restartQuiz = () => {
 };
 
 function answers() {
-  // do the answer stuff
-  // judge your subject by pure wit
-  store.questionNumber++;
-  render();
-}
+  console.log("answers()");
 // compare click location to answer choice
 // if click !== answer, render answerPage template with incorrect response
 // if click === answer, render answerPage with correct
@@ -179,10 +185,13 @@ function answers() {
 // indicate correct answer
 // indicate number correct out of total
 // next button question
+  render();
+}
 
 
 
 const main = () => {
+  console.log("main()");
   //handleStartQuiz();
   //render();
   //counter();
