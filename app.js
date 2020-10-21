@@ -13,27 +13,37 @@ const store = {
         'What long-time artistic duo was featured on The Weeknd\'s "I Feel It Comin\'"?',
       answers: ['Chromeo', 'Daft Punk', 'Simon & Garfunkle', 'Genesis'],
       correctAnswer: 'Daft Punk',
+      answerInfo: '',
+      infoImage: 'the-weeknd.jpg'
     },
     {
       question: 'Which of these is NOT a Radiohead album?',
       answers: ['Kid A', 'The Bends', 'Pablo Honey', 'Maladroit'],
       correctAnswer: 'Maladroit',
+      answerInfo: '',
+      infoImage: 'Radiohead-Promo-730x410.jpg'
     },
     {
       question: 'What state was Led Zeppelin "Going to" on their 1971 album Led Zeppelin IV?',
       answers: ['Virginia', 'New Jersey', 'California', 'Alabama'],
       correctAnswer: 'California',
+      answerInfo: '',
+      infoImage: 'led-zep-IV.jpg'
     },
     {
       question: 'In his breathtaking classical performances, Yo-Yo Ma plays what band concert instrument?',
       answers: ['Cello', 'Piano', 'Clarinet', 'Flute'],
       correctAnswer: 'Cello',
+      answerInfo: '',
+      infoImage: 'R1606L_YOYOMA.jpg'
     },
     {
       question:
         'What era of music does movements from the classical composer Tchaikovsky originate?',
       answers: ['Romantic', 'Baroque', 'Classic', 'Contemporary'],
       correctAnswer: 'Romantic',
+      answerInfo: '',
+      infoImage: 'Pyotr-Ilyich-Tchaikovsky.jpg'
     },
   ],
   quizStarted: false,
@@ -174,20 +184,19 @@ const answerPage = (val) => {
     store.score++;
     title = 'Correct!';
     color = 'green';
-    info = 'good job im proud love u';
   }
   else
   {
     title = 'Wrong!';
     color = 'red';
-    info = 'You DUMMY!';
   }
 
   let answerEval = `
   <article class="question" id="question-card">
   <h2 style="color:${color};" class="question" id="question-title">${title}</h2>
     <form class="answer" id="answer-section">
-      <p class="question" id="question-text">${info}</p>
+      <img src="${infoImage}"/>
+      <p class="question" id="question-text">${answerInfo}</p>
       <button class="submit" id="next${store.questionNumber}">Next</button>
     </form>
     <p class="question" id="quiz-score">Correct: ${store.score}/${store.questionNumber + 1}</p>
