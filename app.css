@@ -6,12 +6,12 @@
   * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
   *
 */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,200&display=swap");
 
 html {
   background: #503a4e;
   overflow-x: hidden;
-  font-family: 'Poppins', Geneva, Verdana, sans-serif;
+  font-family: "Poppins", Geneva, Verdana, sans-serif;
 }
 
 header > h1 {
@@ -23,7 +23,6 @@ header > h1 {
   margin: 0 -5% 36px -5%;
   box-shadow: 0px 2px 5px 1px black;
 }
-
 main {
   display: flex;
   flex-flow: column wrap;
@@ -43,21 +42,24 @@ main {
   margin: auto;
   padding: 36px 36px;
   border-radius: 12px;
-  box-shadow:
-    0px 3px 5px black;
+  box-shadow: 0px 3px 5px black;
 }
 
 #question-title {
   text-align: center;
   margin-top: 0;
 }
-
+.quiz-result,
 #answer-section {
   background: #f6f2f7;
   border: 1px solid black;
   display: inherit;
   flex-direction: column;
   padding: 12px 24px;
+  border-radius: 12px;
+}
+.quiz-result {
+  text-align: center;
 }
 
 #answer-section img {
@@ -72,7 +74,7 @@ label {
 
 #start,
 .submit,
-#reset {
+#restart {
   width: 124px;
   margin: 12px auto;
 }
