@@ -1,48 +1,49 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
-/* eslint-disable indent */
-/* eslint-disable strict */
-/**
- * Example store structure
- */
 const store = {
   // 5 or more questions are required
   questions: [
     {
-      question: 'What long-time artistic duo was featured on The Weeknd\'s "I Feel It Comin\'"?',
-      answers: ['Chromeo', 'Daft Punk', 'Simon & Garfunkle', 'Genesis'],
-      correctAnswer: 'Daft Punk',
-      answerInfo: 'welknd',
-      infoImage: 'the-weeknd.jpg'
+      question:
+        "What long-time artistic duo was featured on The Weeknd's \"I Feel It Comin'\"?",
+      answers: ["Chromeo", "Daft Punk", "Simon & Garfunkle", "Genesis"],
+      correctAnswer: "Daft Punk",
+      answerInfo:
+        "<strong>Fun Fact: </strong>\tHe came up with his name “The Weeknd” after he packed a bag, dropped out of school, left one weekend, and never came home. The Weeknd removed the “e” to avoid copyright issues with a Canadian band that also went by the same name. 🧳 <em>lalive.com</em>",
+      infoImage: "the-weeknd.jpg",
     },
     {
-      question: 'Which of these is NOT a Radiohead album?',
-      answers: ['Kid A', 'The Bends', 'Pablo Honey', 'Maladroit'],
-      correctAnswer: 'Maladroit',
-      answerInfo: 'radioman',
-      infoImage: 'Radiohead-Promo-730x410.jpg'
-    },
-    {
-      question: 'What state was Led Zeppelin "Going to" on their 1971 album Led Zeppelin IV?',
-      answers: ['Virginia', 'New Jersey', 'California', 'Alabama'],
-      correctAnswer: 'California',
-      answerInfo: 'lead zepples',
-      infoImage: 'led-zep-IV.jpg'
-    },
-    {
-      question: 'In his breathtaking classical performances, Yo-Yo Ma plays what band concert instrument?',
-      answers: ['Cello', 'Piano', 'Clarinet', 'Flute'],
-      correctAnswer: 'Cello',
-      answerInfo: 'yo mama',
-      infoImage: 'R1606L_YOYOMA.jpg'
+      question: "Which of these is NOT a Radiohead album?",
+      answers: ["Kid A", "The Bends", "Pablo Honey", "Maladroit"],
+      correctAnswer: "Maladroit",
+      answerInfo:
+        "<strong>Fun Fact: </strong>\tThom Yorke defended his gloomy reputation in 1996 thus: “It’s just that I’m surrounded by a world of grinning idiots and I don’t think I want to be another one. 😬 <em>nme.com</em>",
+      infoImage: "Radiohead-Promo-730x410.jpg",
     },
     {
       question:
-        'What era of music does movements from the classical composer Tchaikovsky originate?',
-      answers: ['Romantic', 'Baroque', 'Classic', 'Contemporary'],
-      correctAnswer: 'Romantic',
-      answerInfo: 'good old russian fren',
-      infoImage: 'Pyotr-Ilyich-Tchaikovsky.jpg'
+        'What state was Led Zeppelin "Going to" on their 1971 album Led Zeppelin IV?',
+      answers: ["Virginia", "New Jersey", "California", "Alabama"],
+      correctAnswer: "California",
+      answerInfo:
+        "<strong>Fun Fact: </strong>\tIn August 1968 Page invited Robert Plant and John Bon w Yardbirds, for a September tour in Scandinavia. In October 1968 they took the name Led Zeppelin, which stemmed from a humorous conversation among several musicians about their chances of going down like a lead balloon.🎈 <em>imdb.com</em>",
+      infoImage: "led-zep-IV.jpg",
+    },
+    {
+      question:
+        "In his breathtaking classical performances, Yo-Yo Ma plays what band concert instrument?",
+      answers: ["Cello", "Piano", "Clarinet", "Flute"],
+      correctAnswer: "Cello",
+      answerInfo:
+        "<strong>Fun Fact: </strong>\tMa’s career nearly ended before it began. Because of severe scoliosis, at age 25 he endured risky back surgery and couldn’t play for 6 months. The surgery was a success, however, and he went on to schedule many concerts soon after. 🎻 <em>connollymusic.com</em>",
+      infoImage: "R1606L_YOYOMA.jpg",
+    },
+    {
+      question:
+        "What era of music does movements from the classical composer Tchaikovsky originate?",
+      answers: ["Romantic", "Baroque", "Classic", "Contemporary"],
+      correctAnswer: "Romantic",
+      answerInfo:
+        "<strong>Fun Fact: </strong>\tTchaikovsky married just once. Within 6 weeks he had a nervous breakdown. Tchaikovsky’s homosexuality was at odds with the society in which he lived. Bowing under societal and familial pressure, he hastily went ahead with a marriage to one of his former pupils, Antonia Miliukova, who had expressed her undying infatuation with him. Within just six weeks of taking his vows, however, Tchaikovsky fled the marriage and the country. 🎼 <em>musicwithvision.medici.tv</em>",
+      infoImage: "Pyotr-Ilyich-Tchaikovsky.jpg",
     },
   ],
   quizStarted: false,
@@ -50,82 +51,29 @@ const store = {
   score: 0,
 };
 
-/**
- *
- * Technical requirements:
- *
- * Your app should include a render() function, that regenerates the view each time the store is updated.
- * See your course material and access support for more details.
- *
- * NO additional HTML elements should be added to the index.html file.
- *
- * You may add attributes (classes, ids, etc) to the existing HTML elements, or link stylesheets or additional scripts if necessary
- *
- * SEE BELOW FOR THE CATEGORIES OF THE TYPES OF FUNCTIONS YOU WILL BE CREATING 👇
- *
- */
+// RENDER FUNCTION
 
-/********** TEMPLATE GENERATION FUNCTIONS **********/
-
-// These functions return HTML templates
-
-const startPage = () => {
-  console.log('startPage()');
-  // loads first and show the title + the button to start the quiz return
-  handleStartQuiz();
-  return `
-  <article class="question" id="question-card">
-    <h2 class="question" id="question-title">Randow Music Knowlegde Quiz</h2> 
+function render() {
+  if (store.quizStarted === false) {
+    $("main").html(`<article class="question" id="question-card">
+    <h2 class="question" id="question-title">Hey welcome, let's test your🎼knowledge!</h2> 
     <form class="answer" id="answer-section">
       <p class="answer">Are you ready?</p>
       <button id="start">Start Quiz</button>
     </section>
-  </article>`;
-};
-
-const handleStartQuiz = () => {
-  // click -> starting quiz
-  $('main').on('click', '#start', function () {
-    store.quizStarted = true;
-    render();
-  });
-};
-
-/********** RENDER FUNCTION(S) **********/
-
-// This function conditionally replaces the contents of the <main> tag based on the state of the store
-
-const render = () => {
-  console.log('render()');
-  // depending on status of store.quizStarted
-  // load startPage or
-  // execute questionPage (.html)
-  // depending on input
-  // render correctPage or
-  // render incorrectPage
-
-  if (store.quizStarted === false) {
-    $('main').html(startPage());
-  }
-  if (store.quizStarted === true) {
-    $('main').html(questionPage());
+  </article>;`);
+    $("#start").on("click", function () {
+      questionPage(store);
+    });
   }
 }
 
 const questionPage = () => {
-  console.log('questionPage()');
-  // reference store.questionnumber
-  // template for formatting of question
-  // template for radio button labels and values for options
-  // submit button
-  // increment store.questionnumber
-  // send to answerPage
-
-  checkAnswer();
-
-  let currentAnswers = '';
-
-  // Grabs all the answers for the current question.
+  console.log("questionPage()");
+  if (store.questionNumber === store.questions.length) {
+    return results();
+  }
+  let currentAnswers = "";
   for (
     let i = 0;
     i < store.questions[store.questionNumber].answers.length;
@@ -134,12 +82,12 @@ const questionPage = () => {
     answerValue = store.questions[store.questionNumber].answers[i];
     currentAnswers += `
     <label for="ans${i + 1}">
-      <input type="radio" class="answer" id="ans${i + 1}" name="response" value="${answerValue}"/>
+      <input type="radio" class="answer" id="ans${
+        i + 1
+      }"name="response" value="${answerValue}" required>
       ${answerValue}
     </label>`;
   }
-
-  // Creates the current question page template.
   let currentPage = `
     <article class="question" id="question-card">
       <h2 class="question" id="question-title">Question ${
@@ -149,48 +97,35 @@ const questionPage = () => {
         store.questions[store.questionNumber].question
       }</p>
         <form class="answer" id="answer-section">
-          ${
-            currentAnswers
-          }
-          <button class="submit" id="check${store.questionNumber}">Submit</button>
+          ${currentAnswers}
+          <button class="submit" id="submit">Submit</button>
         </form>
-      <p class="question" id="quiz-score">Correct: ${store.score}/${store.questionNumber}</p>
+      <p class="question" id="quiz-score">Correct: ${store.score}/${
+    store.questionNumber
+  }</p>
     </article>`;
 
-    return currentPage;
+  $("main").html(currentPage);
+  $("#submit").click(function () {
+    answerPage(store);
+  });
 };
 
-const answerPage = (val) => {
-  console.log('answerPage()');
-// compare click location to answer choice
-// if click !== answer, render answerPage template with incorrect response
-// if click === answer, render answerPage with correct
-// answerPage template:
-// correct/incorrect text
-// indicate correct answer
-// indicate number correct out of total
-// next button question
-
-  nextQuestion();
-
+const answerPage = () => {
   let realAns = store.questions[store.questionNumber].correctAnswer;
+  let val = $('input[name="response"]:checked').val();
   let title;
   let color;
   let image = store.questions[store.questionNumber].infoImage;
   let info = store.questions[store.questionNumber].answerInfo;
-
-  if (val === realAns)
-  {
+  if (val === realAns) {
     store.score++;
-    title = 'Correct!';
-    color = 'green';
+    title = "Correct!";
+    color = "green";
+  } else {
+    title = "Wrong!";
+    color = "red";
   }
-  else
-  {
-    title = 'Wrong!';
-    color = 'red';
-  }
-
   let answerEval = `
   <article class="question" id="question-card">
   <h2 style="color:${color};" class="question" id="question-title">${title}</h2>
@@ -198,49 +133,41 @@ const answerPage = (val) => {
       <img src="images/${image}"/>
       <p class="question" id="question-text">${info}</p>
       <p>The correct answer was: <strong>${realAns}</strong></p> 
-      <button class="submit" id="next${store.questionNumber}">Next</button>
+      <button class="submit" id="next">Next</button>
     </form>
-    <p class="question" id="quiz-score">Correct: ${store.score}/${store.questionNumber + 1}</p>   
+    <p class="question" id="quiz-score">Correct: ${store.score}/${
+    store.questionNumber + 1
+  }</p>   
   </article>`;
 
-  return answerEval;
-
-};
-
-/********** EVENT HANDLER FUNCTIONS **********/
-
-// These functions handle events (submit, click, etc)
-
-const nextQuestion = () => {
-  let id = '#next' + store.questionNumber;
-  $('main').on('click', id, (event) => {
+  $("main").html(answerEval);
+  $("#next").click(function () {
     store.questionNumber++;
-    render();
+    questionPage();
   });
 };
 
-const checkAnswer = () => {
-  let id = '#check' + store.questionNumber;
-  $('main').on('click', id, (event) => {
-    let val = $('input[name="response"]:checked').val();
-    $('main').html(answerPage(val));
-  });
-};
-
-const restartQuiz = () => {
-  console.log('restartQuiz()');
-  $('main').on('click', '#reset', (event) => {
+const results = () => {
+  console.log("restartQuiz()");
+  let tempResult = `
+    <div class='quiz-result'>
+        <h2>Awesome! You finished the Quiz!</h2>
+        <p> You scored a ${(store.score / store.questions.length) * 100}%!</p>
+        <button type="button" id="restart"> Restart</button>
+    </div>
+  `;
+  $("main").html(tempResult);
+  $("#restart").on("click", (event) => {
     store.quizStarted = false;
     store.score = 0;
     store.questionNumber = 0;
-    render();
+    questionPage();
   });
 };
 
-const main = () => {
-  console.log('main()');
-  restartQuiz();
-  render();
-};
+$(render());
 
-$(main);
+// MISSING REQUIRED RADIO BUTTON!
+//function myFunction() {
+//document.getElementsByName("response").required = true; // location.reload;
+// location.reload();
