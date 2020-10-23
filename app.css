@@ -1,11 +1,3 @@
-/* Your styles should be mobile-first and responsive */
-
-/** 
-  * If you are unclear on how to utilize a mobile-first, responsive technique to write your CSS, here is an example: 
-  *
-  * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
-  *
-*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,200&display=swap");
 
 html {
@@ -32,7 +24,21 @@ main {
   font-size: 125%;
 }
 
-#question-card {
+img {
+  width: 90%;
+  margin: auto;
+  height: auto;
+}
+
+ul li {
+  list-style: none;
+  font-size: 20px;
+}
+
+.start,
+.feedback,
+.summary,
+.question {
   background: #e9dae9;
   border: 1px solid black;
   display: inherit;
@@ -40,9 +46,11 @@ main {
   justify-items: center;
   width: 75%;
   margin: auto;
+  margin-bottom: 36px;
   padding: 36px 36px;
   border-radius: 12px;
   box-shadow: 0px 3px 5px black;
+  align-items: center;
 }
 
 #question-title {
@@ -51,6 +59,7 @@ main {
 }
 .quiz-result,
 #answer-section {
+  width: 80%;
   background: #f6f2f7;
   border: 1px solid black;
   display: inherit;
@@ -73,10 +82,21 @@ label {
 }
 
 #start,
-.submit,
+#answer,
+#next,
 #restart {
-  width: 124px;
+  width: 200px;
   margin: 12px auto;
+  background-color: #503a4e;
+  color: white;
+  border-radius: 8px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#score {
+  display: flex;
+  align-self: center;
 }
 
 @media screen and (min-width: 800px) {
