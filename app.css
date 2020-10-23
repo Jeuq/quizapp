@@ -100,7 +100,10 @@ label {
 }
 
 @media screen and (min-width: 800px) {
-  #question-card {
+  .start,
+  .feedback,
+  .summary,
+  .question {
     width: 50%;
     font-size: 100%;
   }
