@@ -116,6 +116,7 @@ const renderQuestion = () => {
           <div class = "question-tittle">
             <h2>${question.title}</h2>
           </div>
+           <h2> Question❓ ${QUIZ.cQ + 1} | ${QUIZ.questions.length} </h2>
             <ul id="answer-section">
                 ${question.answers
                   .map((answer, i) => {
@@ -126,9 +127,8 @@ const renderQuestion = () => {
                   })
                   .join("")}
             </ul>
-             <h2 id="score"> Score 📢 ${QUIZ.score} | ${
-    QUIZ.questions.length
-  }<h2>
+            <h2 id="score">
+            Score 📢 ${QUIZ.score} | ${QUIZ.questions.length}<h2>
             <button id="answer" type="submit">Submit Answer</button>
         </form>
     `);
