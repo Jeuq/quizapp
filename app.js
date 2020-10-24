@@ -56,7 +56,7 @@ const QUIZ = {
 };
 
 // RENDER FUNCTION this will call all my template generator to display!
-function render() {
+const render = () => {
   // the first check we do is to see if we haven't started yet, then show the startHTML page
   if (!QUIZ.started) {
     renderStart();
