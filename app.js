@@ -74,12 +74,12 @@ function render() {
 
 // These are the template generators... that my render function will call when a conditional is met.
 const renderStart = () => {
-  return `
+  $("main").html(`
         <section class="start">
             <h2>Welcome fellow! Let's test your musical 🎼 knowledge!</h2>
             <button id="start">Start Quiz</button>
         </section>
-    `;
+    `);
 };
 
 const renderFeedback = () => {
@@ -136,7 +136,6 @@ const renderQuestion = () => {
 
 // EVENT LISTENERS when a button is clicked.
 const onStart = () => {
-  $("main").html(renderStart());
   $("main").on("click", "#start", startedQuiz);
 };
 const onNext = () => {
