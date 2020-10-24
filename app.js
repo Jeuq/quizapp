@@ -73,16 +73,16 @@ function render() {
 }
 
 // These are the template generators... that my render function will call when a conditional is met.
-function renderStart() {
+const renderStart = () => {
   $("main").html(`
         <section class="start">
             <h2>Welcome fellow! Let's test your musical 🎼 knowledge!</h2>
             <button id="start">Start Quiz</button>
         </section>
     `);
-}
+};
 
-function renderFeedback() {
+const renderFeedback = () => {
   const question = QUIZ.questions[QUIZ.cQ];
   $("main").html(`
         <section class="feedback">
@@ -93,9 +93,9 @@ function renderFeedback() {
             <button id="next">Next Question</button>
         </section>
     `);
-}
+};
 
-function renderSummary() {
+const renderSummary = () => {
   $("main").html(`
         <section class="summary">
             <h2>Quiz Summary</h2>
@@ -107,9 +107,9 @@ function renderSummary() {
             <button id="restart">Try Again!</button>
         </section>
     `);
-}
+};
 
-function renderQuestion() {
+const renderQuestion = () => {
   const question = QUIZ.questions[QUIZ.cQ];
   $("main").html(`
         <form class="question">
@@ -126,47 +126,49 @@ function renderQuestion() {
                   })
                   .join("")}
             </ul>
-             <h2 id="score"> Score 📢 ${QUIZ.score} | ${QUIZ.questions.length}<h2>
+             <h2 id="score"> Score 📢 ${QUIZ.score} | ${
+    QUIZ.questions.length
+  }<h2>
             <button id="answer" type="submit">Submit Answer</button>
         </form>
     `);
-}
+};
 
 // EVENT LISTENERS when a button is clicked.
-function onStart() {
+const onStart = () => {
   $("main").on("click", "#start", startedQuiz);
-}
-function onNext() {
+};
+const onNext = () => {
   $("main").on("click", "#next", nextQuestion);
-}
-function onRestart() {
+};
+const onRestart = () => {
   $("main").on("click", "#restart", restartQuiz);
-}
-function onAnswer() {
+};
+const onAnswer = () => {
   $("main").on("submit", "form", submitAnswer);
-}
+};
 
 // This are the functions with the required conditionals.
-function startedQuiz() {
+const startedQuiz = () => {
   QUIZ.started = true;
   render();
-}
+};
 
-function nextQuestion() {
+const nextQuestion = () => {
   QUIZ.cQ++;
   QUIZ.feedback = false;
   QUIZ.correct = false;
   render();
-}
+};
 
-function restartQuiz() {
+const restartQuiz = () => {
   QUIZ.started = false;
   QUIZ.cQ = 0;
   QUIZ.score = 0;
   render();
-}
+};
 
-function submitAnswer(event) {
+const submitAnswer = (event) => {
   // prevent Default
   event.preventDefault();
   const question = QUIZ.questions[QUIZ.cQ];
@@ -177,15 +179,15 @@ function submitAnswer(event) {
   }
   QUIZ.feedback = `The correct answer is ${question.answers[question.correct]}`;
   render();
-}
+};
 
 // MAIN FUNCTION....will CALLBACK all the EVENT LISTENERS and call RENDER so the info can be display.
-function main() {
+const main = () => {
   onRestart();
   onNext();
   onAnswer();
   onStart();
   render();
-}
+};
 
 $(main);
