@@ -59,32 +59,32 @@ const QUIZ = {
 const render = () => {
   // the first check we do is to see if we haven't started yet, then show the startHTML page
   if (!QUIZ.started) {
-    renderStart();
+    $("main").html(renderStart());
     // if we have started but have feedback for the user, show the feedbackHTML page
   } else if (QUIZ.feedback) {
-    renderFeedback();
+    $("main").html(renderFeedback());
     // if we have run out of questions, show the summaryHTML page
   } else if (QUIZ.cQ >= QUIZ.questions.length) {
-    renderSummary();
+    $("main").html(renderSummary());
   } else {
     // otherwise ... we render the current questionHTML
-    renderQuestion();
+    $("main").html(renderQuestion());
   }
 }
 
 // These are the template generators... that my render function will call when a conditional is met.
 const renderStart = () => {
-  $("main").html(`
+  return `
         <section class="start">
             <h2>Welcome fellow! Let's test your musical 🎼 knowledge!</h2>
             <button id="start">Start Quiz</button>
         </section>
-    `);
+    `;
 };
 
 const renderFeedback = () => {
   const question = QUIZ.questions[QUIZ.cQ];
-  $("main").html(`
+  return `
         <section class="feedback">
             <h2>${QUIZ.correct ? "Awesome you got it!" : "WRONG! :("}</h2>
             <img src="images/${question.image}" />
@@ -92,11 +92,11 @@ const renderFeedback = () => {
             <p>${QUIZ.feedback}</p>
             <button id="next">Next Question</button>
         </section>
-    `);
+    `;
 };
 
 const renderSummary = () => {
-  $("main").html(`
+  return `
         <section class="summary">
             <h2>Quiz Summary</h2>
              <img class="gifplayer" src="musicSummary.gif"${QUIZ.summaryGif}>
@@ -106,12 +106,12 @@ const renderSummary = () => {
   } correct!</p>
             <button id="restart">Try Again!</button>
         </section>
-    `);
+    `;
 };
 
 const renderQuestion = () => {
   const question = QUIZ.questions[QUIZ.cQ];
-  $("main").html(`
+  return `
         <form class="question">
           <div class = "question-tittle">
             <h2>${question.title}</h2>
@@ -131,7 +131,7 @@ const renderQuestion = () => {
             Score 📢 ${QUIZ.score} | ${QUIZ.questions.length}<h2>
             <button id="answer" type="submit">Submit Answer</button>
         </form>
-    `);
+    `;
 };
 
 // EVENT LISTENERS when a button is clicked.
